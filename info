@@ -1,3 +1,5 @@
+qemu-img create ubuntu.img 10G
 qemu-system-x86_64 -hda ubuntu_16_04.img -boot d -cdrom ubuntu-16.04-desktop-amd64.iso -m 3600 -device ivshmem,shm=ivshmem,size=1
+
 # enable kvm to use host machine virtualization technology to speed up guest's emulation
 qemu-system-x86_64 -hda ubuntu_16_04.img -boot d -cdrom ubuntu-16.04-desktop-amd64.iso -m 6000 -smp 8 -device ivshmem,shm=ivshmem,size=1 -enable-kvm

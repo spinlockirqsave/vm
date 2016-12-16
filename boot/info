@@ -1,0 +1,4 @@
+gcc -static hello.c -o init
+echo init | cpio -o -H newc | gzip > test.cpio.gz
+# Testing external initramfs using the initrd loading mechanism.
+qemu-system-x86_64 -kernel /boot/vmlinuz-4.9.0+ -initrd test.cpio.gz /dev/zero

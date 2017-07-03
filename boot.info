@@ -1,0 +1,2 @@
+1. boot custom kernel with debugging symbols using it's initrd (created during kernel build) with old debian.img (origin unknown)
+qemu-system-x86_64 -kernel /boot/vmlinuz-4.4.70 -initrd /boot/initrd.img-4.4.70 -enable-kvm -hda ~/vm/debian.img -append "init= root=/dev/sda1 ro" -s

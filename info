@@ -7,3 +7,7 @@ qemu-system-x86_64 -hda ubuntu_16_04.img -boot d -cdrom ubuntu-16.04-desktop-amd
 qemu-system-x86_64 -kernel ~/kernel/linux-source-3.16/arch/x86/boot/bzImage -initrd /boot/initrd.img-3.16.36 -m 4000 -enable-kvm -hda debian.img -append "init= root=/dev/sda1 ro"
 
 qemu-system-x86_64 -kernel /boot/vmlinuz-4.9.0+ -initrd ~/kernel/linux-2.6/arch/x86/boot/initrd.img-4.9.0+ /dev/zero -append "kgdboc=/dev/ttyS0,115200 kgdbwait" -serial pty
+
+# debian 9 "stretch"
+qemu-img create -f qcow2 debian1.img 50G
+qemu-system-x86_64 -smp 2 -m 4G -hda debian1.img -cdrom debian-9.0.0-amd64-netinst.iso -boot d -enable-kvm
